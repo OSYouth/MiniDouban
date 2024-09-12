@@ -2,9 +2,39 @@
 <html>
 <head>
     <title>Movies App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <h1>欢迎来到movie应用首页</h1>
-    <h2>这是整个movie应用的首页</h2>
+<div class="container">
+    <form action="">
+        <div class="mb-3">
+            <label class="form-label">搜索电影:</label>
+            <input type="text" name="searchMovie"
+                   class="form-control"/>
+        </div>
+        <button type="submit" class="btn btn-primary">
+            搜索
+        </button>
+    </form>
+    搜索 {{ searchTerm }}
+    <br/>
+    <br/>
+    <h2>提交邮箱信息:</h2>
+    <form action="{% url 'signup' %}">
+        <div class="mb-3">
+            <label for="email" class="form-label">
+                邮箱地址:
+            </label>
+            <input type="email" class="form-control" name="email"/>
+        </div>
+        <button type="submit" class="btn btn-primary">
+            注册
+        </button>
+    </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
 </html>

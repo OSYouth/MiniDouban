@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from movie import views
+from book import views as bookviews
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -25,6 +26,7 @@ urlpatterns = [
     path("moviehome", views.moviehome, name='moviehome'),
     path('', views.home, name='home'),
     path('signup/', views.signup, name='signup'),
+    path('bookhome', bookviews.bookhome, name='bookhome')
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

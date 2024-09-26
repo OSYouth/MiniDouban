@@ -56,7 +56,8 @@ ROOT_URLCONF = "MiniDouban.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR,'book/templates')],
+        "DIRS": [os.path.join(BASE_DIR,'movie/templates'),
+                 os.path.join(BASE_DIR,'book/templates')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

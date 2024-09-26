@@ -8,3 +8,6 @@ class Movie(models.Model) :
     class Meta:
         verbose_name = "电影"
         verbose_name_plural = "电影"
+
+    def __str__(self):
+        return self.title

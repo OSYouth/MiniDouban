@@ -57,7 +57,9 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [os.path.join(BASE_DIR,'movie/templates'),
-                 os.path.join(BASE_DIR,'book/templates')],
+                 os.path.join(BASE_DIR,'book/templates'),
+                 os.path.join(BASE_DIR,'templates'),
+                 ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

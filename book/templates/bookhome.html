@@ -31,4 +31,9 @@
         {% endfor %}
     </div>
 </div>
+
+<div class="d-flex justify-content-center align-items-center">
+    {% include "pagination.html" with page=books %}
+</div>
+
 {% endblock content %}

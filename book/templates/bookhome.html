@@ -20,8 +20,10 @@
             <div class="card">
                 <img class="card-img-top" src="{{ book.image.url }}"/>
                 <div class="card-body">
-                    <h5 class="card-title fw-bold">{{ book.title }}</h5>
-                    <p class="card-text">{{ book.description|truncatechars:60 }}</p>
+                    <a href="{% url 'bookdetail' book.id %}">
+                        <h5 class="card-title fw-bold">{{ book.title }}</h5>
+                    </a>
+                    <p class="card-text">{{ book.description|truncatechars:40 }}</p>
                     {% if book.url %}
                     <a href="{{ book.url }}" class="btn btn-primary">电子书链接</a>
                     {% endif %}

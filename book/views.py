@@ -18,3 +18,4 @@ def bookhome(request):
 def bookdetail(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
     return render(request, 'bookdetail.html', {'book': book})
+

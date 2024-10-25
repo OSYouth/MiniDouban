@@ -5,7 +5,7 @@ from django.contrib.auth import login
 from django.db import IntegrityError
 
 def signupaccount(request) :
-    if request.method == ' GET':
+    if request.method == 'GET':
         return render(request,'signupaccount.html',{'form':UserCreationForm})
     else:
         password1 = request.POST.get('password1')

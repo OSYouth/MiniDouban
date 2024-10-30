@@ -28,10 +28,10 @@ def moviedetail(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
     return render(request, 'moviedetail.html', {'movie': movie})
 
-def createreview(request, movie_id):
+def createmoviereview(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
     if request.method == 'GET' :
-        return render(request, 'createreview.html' ,
+        return render(request, 'createmoviereview.html' ,
         {'form':ReviewForm , 'movie':movie})
     else:
         try:
@@ -42,4 +42,4 @@ def createreview(request, movie_id):
             newReview.save()
             return redirect('moviedetail',newReview.movie.id)
         except ValueError:
-            return render(request,'createreview.html', {'form':ReviewForm, 'error':'非法数据'})
+            return render(request,'createmoviereview.html', {'form':ReviewForm, 'error':'非法数据'})

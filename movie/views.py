@@ -26,7 +26,8 @@ def signup(request):
 
 def moviedetail(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
-    return render(request, 'moviedetail.html', {'movie': movie})
+    reviews = Review.objects.filter(movie=movie)
+    return render(request, 'moviedetail.html', {'movie': movie, 'reviews':reviews})
 
 def createmoviereview(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)

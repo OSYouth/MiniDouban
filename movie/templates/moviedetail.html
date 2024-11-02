@@ -20,6 +20,11 @@
                         发表评论
                     </a>
                     {% endif %}
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'updatemoviereview' review.id %}" class="btn btn-primary">
+                        修改评论
+                    </a>
+                    {% endif %}
                 </p>
                 <hr/>
                 <h3>影评</h3>

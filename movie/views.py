@@ -44,3 +44,17 @@ def createmoviereview(request, movie_id):
             return redirect('moviedetail',newReview.movie.id)
         except ValueError:
             return render(request,'createmoviereview.html', {'form':ReviewForm, 'error':'非法数据'})
+
+def updatemoviereview(request, review_id) :
+    review = get_object_or_404(Review, pk=review_id, user=request.user)
+    if request.method == 'GET':
+        form = ReviewForm(instance=review)
+        return render(request, 'updatemvoiereview.html', {'review':review, 'form':form})
+    else:
+        try:
+            form = ReviewForm(request.POST, instance=review)
+            form.save()
+            return redirect('moviedetail', review.movie.id)
+        except ValueError:
+            return render(request, 'updatemoviereview.html', {'review':review, 'form':form, 'error':'提交非法数据'})
+

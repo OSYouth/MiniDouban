@@ -22,8 +22,8 @@ class Review(models.Model) :
     watchAgain = models.BooleanField(verbose_name='是否值得再次观看')
 
     class Meta:
-        verbose_name = "电影"
-        verbose_name_plural = "电影"
+        verbose_name = "影评"
+        verbose_name_plural = "影评"
 
     def __str__(self) :
         return self.text

@@ -49,7 +49,7 @@ def updatemoviereview(request, review_id) :
     review = get_object_or_404(Review, pk=review_id, user=request.user)
     if request.method == 'GET':
         form = ReviewForm(instance=review)
-        return render(request, 'updatemvoiereview.html', {'review':review, 'form':form})
+        return render(request, 'updatemoviereview.html', {'review':review, 'form':form})
     else:
         try:
             form = ReviewForm(request.POST, instance=review)

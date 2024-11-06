@@ -34,8 +34,8 @@
                         </h6>
                         <p class="card-text">{{ review.text }}</p>
                         {% if user.is_authenticated and user == review.user %}
-                            <a class="btn btn-primary me-2" href="{% url 'createmoviereview' movie.id %}">修改</a>
-                            <a class="btn btn-danger" href="#">删除</a>
+                            <a class="btn btn-primary me-2" href="{% url 'updatemoviereview' review.id %}">修改</a>
+                            <a class="btn btn-danger" href="{% url 'deletemoviereview' review.id %}">删除</a>
                         {% endif %}
                     </li>
                     {% endfor %}

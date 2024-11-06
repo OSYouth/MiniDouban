@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Movie, Review
@@ -29,6 +30,7 @@ def moviedetail(request, movie_id):
     reviews = Review.objects.filter(movie=movie)
     return render(request, 'moviedetail.html', {'movie': movie, 'reviews':reviews})
 
+@login_required
 def createmoviereview(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
     if request.method == 'GET' :
@@ -45,6 +47,7 @@ def createmoviereview(request, movie_id):
         except ValueError:
             return render(request,'createmoviereview.html', {'form':ReviewForm, 'error':'非法数据'})
 
+@login_required
 def updatemoviereview(request, review_id) :
     review = get_object_or_404(Review, pk=review_id, user=request.user)
     if request.method == 'GET':
@@ -58,3 +61,8 @@ def updatemoviereview(request, review_id) :
         except ValueError:
             return render(request, 'updatemoviereview.html', {'review':review, 'form':form, 'error':'提交非法数据'})
 
+@login_required
+def deletemoviereview(request, review_id) :
+    review = get_object_or_404(Review, pk=review_id, user=request.user)
+    review.delete()
+    return redirect('mvoiedetail', review.movie.id)

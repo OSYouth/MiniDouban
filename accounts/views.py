@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
+from django.contrib.auth.decorators import login_required
 
 def signupaccount(request) :
     if request.method == 'GET':
@@ -24,6 +25,7 @@ def signupaccount(request) :
         else:
             return render(request, 'signupaccount.html', {'form': UserCreateForm, 'error': '输入的密码不一致'})
 
+@login_required
 def logoutaccount(request):
     logout(request)
     return redirect('moviehome')
